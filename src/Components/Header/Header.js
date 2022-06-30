@@ -1,4 +1,5 @@
 import React from "react";
+import { Link, NavLink } from "react-router-dom";
 
 const Header = () => {
   return (
@@ -27,28 +28,30 @@ const Header = () => {
               class="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52"
             >
               <li>
-                <a>Completed Tasks</a>
+                <NavLink to="/completed-tasks">Completed Tasks</NavLink>
               </li>
               <li>
-                <a>To-Do</a>
+                <NavLink to="/to-do">To-Do</NavLink>
               </li>
               <li>
-                <a>Calendar</a>
+                <Link to="/calendar">Calendar</Link>
               </li>
             </ul>
           </div>
-          <a class="text-xl">To-Do-App</a>
+          <Link class="text-xl" to="/">
+            To-Do-App
+          </Link>
         </div>
         <div class="navbar-center hidden lg:flex">
           <ul class="menu menu-horizontal p-0">
             <li>
-              <a>Completed Tasks</a>
+              <NavLink to="/completed-tasks">Completed Tasks</NavLink>
             </li>
             <li>
-              <a>To-Do</a>
+              <NavLink to="/to-do">To-Do</NavLink>
             </li>
             <li>
-              <a>Calendar</a>
+              <Link to="/calendar">Calendar</Link>
             </li>
           </ul>
         </div>

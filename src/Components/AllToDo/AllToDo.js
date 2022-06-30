@@ -1,9 +1,13 @@
-import React from "react";
+import React, { useState } from "react";
 import { useQuery } from "react-query";
 import Loading from "../Loading/Loading";
 import SingleToDo from "../SingleToDo/SingleToDo";
+import { DayPicker } from "react-day-picker";
+import TheCalendar from "../TheCalendar/TheCalendar";
+import { format } from "date-fns";
 
 const AllToDo = () => {
+  const [date, setDate] = useState(new Date());
   const {
     data: tasks,
     isLoading,
@@ -17,7 +21,8 @@ const AllToDo = () => {
   const handleSubmit = (event) => {
     event.preventDefault();
     const toDoName = event.target.todoname.value;
-    const toDo = { toDoName };
+    const Date = event.target.date.value;
+    const toDo = { toDoName, Date };
 
     fetch("http://localhost:5000/add-new-task", {
       method: "POST", // or 'PUT'
@@ -35,19 +40,28 @@ const AllToDo = () => {
   };
 
   return (
-    <div className="py-12 text-center bg-slate-200">
-      <div>
-        <form className="" onSubmit={handleSubmit}>
+    <div className="md:py-12 p-4 text-center bg-red-200">
+      <div className="md:flex justify-evenly items-center">
+        <div className="bg-white rounded shadow-lg">
+          <DayPicker mode="single" selected={date} onSelect={setDate} />
+        </div>
+        <form className="flex md:flex-row flex-col my-2" onSubmit={handleSubmit}>
           <input
             type="text"
             placeholder="Task Name"
-            class="input w-full max-w-xs"
+            class="input input-bordered"
             name="todoname"
           />
-          <input type="submit" placeholder="Task Name" class="btn" />
+          <input
+            type="text"
+            name="date"
+            value={format(date, "PP")}
+            className="input input-bordered"
+          />
+          <input type="submit" placeholder="Task Name" class="btn hover:bg-red-100 bg-red-500 text-white hover:text-red-400 border-none" />
         </form>
       </div>
-      <div className="flex justify-between gap-16 m-12">
+      <div className="grid grid-cols-4 gap-4 m-12">
         {tasks?.map((singleToDo) => (
           <SingleToDo key={singleToDo._id} single={singleToDo}></SingleToDo>
         ))}

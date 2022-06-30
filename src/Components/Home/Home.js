@@ -6,7 +6,6 @@ const Home = () => {
   const {
     data: tasks,
     isLoading,
-    refetch,
   } = useQuery("taskForTodoPage", () =>
     fetch("http://localhost:5000/all-task").then((res) => res.json())
   );
@@ -16,7 +15,7 @@ const Home = () => {
 
   return (
     <div className="py-12 text-center bg-red-200">
-      <div className="flex justify-between gap-16 m-12">
+      <div className="grid gap-16 m-12">
         {tasks?.map((singleToDo) => (
           <SingleToDo key={singleToDo._id} single={singleToDo}></SingleToDo>
         ))}
