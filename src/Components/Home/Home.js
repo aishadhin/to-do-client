@@ -15,7 +15,7 @@ const Home = () => {
 
   return (
     <div className="py-12 text-center bg-red-200">
-      <div className="grid gap-16 m-12">
+      <div className="grid grid-cols-1 md:grid-cols-4 gap-4 m-6">
         {tasks?.map((singleToDo) => (
           <SingleToDo key={singleToDo._id} single={singleToDo}></SingleToDo>
         ))}
