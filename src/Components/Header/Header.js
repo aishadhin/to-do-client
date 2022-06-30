@@ -2,8 +2,8 @@ import React from "react";
 
 const Header = () => {
   return (
-    <div className="container mx-auto">
-      <div class="navbar bg-base-100 justify-center md:justify-start">
+    <div className="">
+      <div class="navbar bg-base-100 py-2 px-0 md:justify-between justify-center">
         <div class="navbar-start">
           <div class="dropdown">
             <label tabindex="0" class="btn btn-ghost lg:hidden">
@@ -37,7 +37,7 @@ const Header = () => {
               </li>
             </ul>
           </div>
-          <a class="btn btn-ghost normal-case text-xl">To-Do-App</a>
+          <a class="text-xl">To-Do-App</a>
         </div>
         <div class="navbar-center hidden lg:flex">
           <ul class="menu menu-horizontal p-0">
