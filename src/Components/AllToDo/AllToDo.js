@@ -45,6 +45,11 @@ const AllToDo = () => {
           <DayPicker mode="single" selected={date} onSelect={setDate} />
         </div>
         <form
+        onKeyDown={(e) => {
+            if (e.key === 'Enter') {
+                console.log(e.target.todoname.value)
+            }
+        }}
           className="flex md:flex-row flex-col my-2"
           onSubmit={handleSubmit}
         >

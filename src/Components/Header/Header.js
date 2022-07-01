@@ -28,7 +28,7 @@ const Header = () => {
               class="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52"
             >
               <li>
-                <NavLink to="/completed-tasks">Completed Tasks</NavLink>
+                <NavLink to="/completed">Completed Tasks</NavLink>
               </li>
               <li>
                 <NavLink to="/to-do">To-Do</NavLink>
@@ -45,7 +45,7 @@ const Header = () => {
         <div class="navbar-center hidden lg:flex">
           <ul class="menu menu-horizontal p-0">
             <li>
-              <NavLink to="/completed-tasks">Completed Tasks</NavLink>
+              <NavLink to="/completed">Completed Tasks</NavLink>
             </li>
             <li>
               <NavLink to="/to-do">To-Do</NavLink>
